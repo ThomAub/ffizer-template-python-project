@@ -1,0 +1,14 @@
+#! /bin/bash
+
+set -euo pipefail
+
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
+PRJ_DIR="$(cd ${DIR}/.. >/dev/null 2>&1 && pwd)"
+IMG="{{package_name}}-dev"
+
+docker run -it --rm \
+    -v ${PRJ_DIR}:/workspace \
+    --workdir /workspace \
+    --network host \
+    --name "${IMG}" "${IMG}" \
+    /bin/bash

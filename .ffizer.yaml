@@ -1,0 +1,35 @@
+variables:
+  - name: project_name
+    default_value: "{{ file_name ffizer_dst_folder }}"
+  - name: package_name
+    default_value: "{{ to_snake_case project_name }}"
+  - name: project_version
+    default_value: "0.1.0"
+  - name: project_description
+  - name: author_name
+    ask: |
+      author_name
+        value for author of the project "Name <name@email>"
+  - name: base_docker_image
+    default_value: nvidia/cuda:10.2-cudnn7-runtime-ubuntu18.04
+    select_in_values:
+      - not_listed
+      - nvidia/cuda:10.2-cudnn7-runtime-ubuntu18.04
+      - nvidia/cuda:11.1-cudnn8-runtime-ubuntu18.04
+      - nvidia/cuda:11.1-devel-ubuntu18.04
+      - nvidia/cuda:10.2-devel-ubuntu18.04
+      - nvidia/cuda:11.1-cudnn8-runtime-ubuntu16.04
+      - nvidia/cuda:11.1-devel-ubuntu16.04
+  - name: python_version
+    default_value: "3.7"
+    select_in_values:
+      - "3.6"
+      - "3.7"
+      - "3.8"
+      - "3.9"
+
+ignores:
+  - .git
+  - .gitignore
+  - README.md
+  - tmp

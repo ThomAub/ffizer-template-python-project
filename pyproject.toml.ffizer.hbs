@@ -1,0 +1,36 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "{{package_name}}"
+version = "{{project_version}}"
+description = "{{project_description}}"
+authors = ["{{author_name}}"]
+readme = "README.md"
+documentation = ""
+license = "LICENSE.md"
+
+[tool.poetry.dependencies]
+python = "^{{python_version}}"
+
+[tool.poetry.dev-dependencies]
+black = "^19.10b0"
+pylama = "^7.7.1"
+pytest = "^5.4.3"
+pytest-cov = "^2.10.0"
+pytest-mypy = "^0.8.0"
+
+
+[tool.black]
+exclude = '''
+/(
+\.git
+| \.mypy_cache
+| \.tox
+| \.venv
+| \.pytest_cache
+| __pycache__
+)/
+'''
+line-length = 120
