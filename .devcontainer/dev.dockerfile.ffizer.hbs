@@ -15,7 +15,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends \
     git unzip curl zip \
     libbz2-dev libffi-dev liblzma-dev libreadline-dev libsqlite3-dev libssl-dev \
-    libboost-all-dev libsm6 libxext6 libxrender-dev libgl1-mesa-glx \
+    libboost-all-dev libsm6 libxext6 libxrender-dev libgl1-mesa-glx libgomp1 \
     python{{python_version}} python{{python_version}}-dev python{{python_version}}-venv python3-distutils python3-pip \
     && apt-get remove python2.7-minimal -y \
     # # Switch to python 3.7 by default
@@ -32,6 +32,8 @@ ENV PIP_NO_CACHE_DIR=off
 ENV POETRY_VERSION=1.1.2
 
 # Install poetry
+RUN python -m pip install pip --upgrade
+RUN python -m pip install setuptools --upgrade
 RUN python -m pip install "poetry==$POETRY_VERSION"
 
 # Create the directory for your project dependencies
