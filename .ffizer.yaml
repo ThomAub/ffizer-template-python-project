@@ -14,16 +14,15 @@ variables:
     default_value: nvidia/cuda:10.2-cudnn7-runtime-ubuntu18.04
     select_in_values:
       - not_listed
+      - python:3.7-alpine3.8
+      - python:3.8
+      - python:3.8-slim
       - nvidia/cuda:10.2-cudnn7-runtime-ubuntu18.04
       - nvidia/cuda:11.1-cudnn8-runtime-ubuntu18.04
       - nvidia/cuda:11.1-devel-ubuntu18.04
-      - nvidia/cuda:10.2-devel-ubuntu18.04
-      - nvidia/cuda:11.1-cudnn8-runtime-ubuntu16.04
-      - nvidia/cuda:11.1-devel-ubuntu16.04
   - name: python_version
     default_value: "3.7"
     select_in_values:
-      - "3.6"
       - "3.7"
       - "3.8"
       - "3.9"

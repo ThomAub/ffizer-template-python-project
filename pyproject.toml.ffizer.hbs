@@ -15,11 +15,12 @@ license = "LICENSE.md"
 python = "^{{python_version}}"
 
 [tool.poetry.dev-dependencies]
-black = "^19.10b0"
+black = "^20.8b1"
 pylama = "^7.7.1"
 pytest = "^5.4.3"
 pytest-cov = "^2.10.0"
 pytest-mypy = "^0.8.0"
+isort = "^5.7.0"
 
 
 [tool.black]
@@ -34,3 +35,6 @@ exclude = '''
 )/
 '''
 line-length = 120
+
+[tool.isort]
+profile = "black"
